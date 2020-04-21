@@ -1,0 +1,8 @@
+# vim files
+*.swp
+*~
+
+# build files
+TestCB
+TestCB.o
+
