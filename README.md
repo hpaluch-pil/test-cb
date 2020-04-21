@@ -17,7 +17,7 @@ Tested OS: Debian 10/amd64
   ```
 * install downloaded binary:
   ```
-  dpkg -i ClientBridge-1.20.0.3-amd64.deb
+  sudo dpkg -i ClientBridge-1.20.0.3-amd64.deb
   ```
 * build this test program:
   ```
@@ -32,6 +32,12 @@ To test card on Bus=1 Slot=15 and LXI IP Address=192.168.10.38 you can
 use this command:
 ```
 ./TestCB 192.168.10.38 1 15
+```
+Example output from above command:
+```
+OK: Connected to '192.168.10.38:1024', SESSION=1587630255
+OK: OpenSpecifiedCard at Bus=1, Slot=15. CardNum=1
+OK: Card on Bus=1, Slot=15 has CardId='40-160-001,1000000,1.01'
 ```
 
 # Resources
