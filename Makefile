@@ -14,7 +14,10 @@ rebuild: clean TestCB
 clean:
 	rm -f TestCB TestCB.o
 
+git_ver=$(shell scripts/setlocalversion)
+a=test-cb$(git_ver).tar.gz
+
 .PHONY: release
 release:
-	cd .. && tar cvzf test-cb-src.tar.gz ./src/Makefile ./src/*.c
+	cd .. && tar -czf $a ./test-cb/Makefile ./test-cb/*.c ./test-cb/README.md ./test-cb/scripts
 
