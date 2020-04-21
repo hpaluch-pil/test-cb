@@ -1,5 +1,5 @@
 
-CFLAGS = -Wall -g -DLINUX -DLOCAL -D_REENTRANT -Werror=implicit-function-declaration
+CFLAGS = -Wall -g -DLINUX -D_REENTRANT -Werror=implicit-function-declaration
 
 LDLIBS = -lpicmlx -lpiplx
 
