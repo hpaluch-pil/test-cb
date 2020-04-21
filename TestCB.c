@@ -88,8 +88,7 @@ int main(int argc, char **argv) {
 	}
 	CardNum = 0;
 
-	exit2:
-	LastErr = PICMLX_Disconnect(Sid);
+	exit2: LastErr = PICMLX_Disconnect(Sid);
 	if (LastErr != NO_ERROR) {
 		ret = EXIT_FAILURE;
 		snprintf(ErrorBuf, sizeof(ErrorBuf),
