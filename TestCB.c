@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <unistd.h> // getpid(2)
 
 #include <Picmlx.h>
 #include <Piplx.h>
@@ -25,6 +26,9 @@ static void AppendAndPrintPiplxError() {
 	fprintf(stderr, "%s\n", ErrorBuf);
 }
 
+#define TCB_TRACE_PROCESS_ID \
+	printf("PROCESS_ID=%u\n", (unsigned)getpid());
+
 static const DWORD Port = 1024;
 
 int main(int argc, char **argv) {
@@ -46,6 +50,7 @@ int main(int argc, char **argv) {
 	Bus = atoi(argv[2]);
 	Slot = atoi(argv[3]);
 
+	TCB_TRACE_PROCESS_ID;
 	LastErr = PICMLX_Connect(0, LxiIp, Port, 10000, &Sid);
 	if (LastErr != NO_ERROR) {
 		snprintf(ErrorBuf, sizeof(ErrorBuf),
@@ -55,6 +60,7 @@ int main(int argc, char **argv) {
 	}
 	printf("OK: Connected to '%s:%u', SESSION=%lu\n", LxiIp, Port, Sid);
 
+	TCB_TRACE_PROCESS_ID;
 	LastErr = PIPLX_OpenSpecifiedCard(Sid, Bus, Slot, &CardNum);
 	if (LastErr != NO_ERROR) {
 		snprintf(ErrorBuf, sizeof(ErrorBuf),
